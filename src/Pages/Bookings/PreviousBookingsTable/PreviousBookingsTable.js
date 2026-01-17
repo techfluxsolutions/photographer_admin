@@ -66,6 +66,7 @@ const PreviousBookingsTable = () => {
       </div>
 
       {/* Table */}
+      {/* Table */}
       <BookingsTable data={data} page={page} limit={LIMIT}/>
 
       {/* Pagination */}
