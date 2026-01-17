@@ -23,18 +23,23 @@ const Chats = ({ chatType }) => {
   /* =========================
      GET CURRENT USER ID FROM TOKEN
   ========================= */
-  useEffect(() => {
-    const token = getAccessToken();
-    if (token) {
-      try {
-        const payload = JSON.parse(atob(token.split(".")[1]));
-        setCurrentUserId(payload.id);
-      } catch (e) {
-        console.error("Failed to decode token", e);
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   const token = getAccessToken();
+  //   if (token) {
+  //     try {
+  //       const payload = JSON.parse(atob(token.split(".")[1]));
+  //       setCurrentUserId(payload.id);
+  //     } catch (e) {
+  //       console.error("Failed to decode token", e);
+  //     }
+  //   }
+  // }, []);
 
+
+   useEffect(() => {
+    const id = sessionStorage.getItem("myId");
+    if (id) setCurrentUserId(String(id));
+  }, []);
   /* =========================
      SIDEBAR STATE
   ========================= */
@@ -168,8 +173,11 @@ const Chats = ({ chatType }) => {
             )}
             {messages.map((msg) => {
               const sender = msg.senderId;
-              const isMe = sender?._id === currentUserId || sender === currentUserId;
-
+              // const isMe = sender?._id === currentUserId || sender === currentUserId;
+              const isMe = msg?.senderId === null 
+              console.log("currentUserId",currentUserId)
+               console.log("senderId",msg?.senderId)
+               console.log("isMe",isMe)
               return (
                 <div
                   key={msg._id || Math.random()}

@@ -65,6 +65,7 @@ const handleLoginClick = async (e) => {
       const token = encryptData(response?.data?.data?.token);
       sessionStorage.setItem("token", token);
       sessionStorage.setItem("loggedIn", "true");
+      sessionStorage.setItem("myId",response?.data?.data?.admin?.id)
       toast.success(response?.data?.message);
       navigate("/dashboard");
     } else {
