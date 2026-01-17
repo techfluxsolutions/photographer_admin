@@ -9,6 +9,7 @@ import Bookings from "../Pages/Bookings/Bookings";
 import MyQuote from "../Pages/MyQuote/MyQuote";
 import Payment from "../Pages/Payment/Payment";
 import Customer from "../Pages/Customer/Customer";
+import Chats from "../Pages/Chats/Chats";
 
 const AppRoutes = () => {
   const [isOffline, setIsOffline] = useState(false);
@@ -54,10 +55,13 @@ const AppRoutes = () => {
           }
         >
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/bookings" element={<Bookings/>} />
-          <Route path="/my-quote" element={<MyQuote/>} />
-          <Route path="/payment" element={<Payment/>} />
-            <Route path="/customer" element={<Customer/>} />
+          <Route path="/bookings" element={<Bookings />} />
+          <Route path="/my-quote" element={<MyQuote />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/customer" element={<Customer />} />
+          <Route path="/chat/booking/:bookingId" element={<Chats chatType="booking" />} />
+          <Route path="/chat/quote/:quoteId" element={<Chats chatType="quote" />} />
+
         </Route>
 
         {/* Fallback */}

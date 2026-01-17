@@ -1,7 +1,14 @@
 import React from "react";
 import "./BookingsTable.css";
+import { useNavigate } from "react-router-dom";
 
-const BookingsTable = ({ data }) => {
+const BookingsTable = ({ data, page, limit }) => {
+  const navigate = useNavigate();
+const handleChatClick = (shootId) => {
+  console.log("shootId",shootId)
+  navigate(`/chat/booking/${shootId}`);
+};
+
   return (
     <div className="table-wrapper">
       <table className="bookings-table">
@@ -30,13 +37,13 @@ const BookingsTable = ({ data }) => {
           ) : (
             data.map((item, index) => (
               <tr key={item.shootId}>
-                <td>{index + 1}</td>
-                <td>{item.shootId}</td>
-                <td>{item.clientId}</td>
-                <td>{item.clientName}</td>
-                <td>{item.photographer}</td>
-                <td>{item.studio}</td>
-                <td>{item.shootType}</td>
+                <td>{(page - 1) * limit + index + 1}</td>
+                <td>{item.shoot_id || "-"}</td>
+                <td>{item.client_id || "-"}</td>
+                <td>{item.client_name || "-"}</td>
+                <td>{item.assigned_photographer || "-"}</td>
+                <td>{item.team_studio || "-"}</td>
+                <td>{item.shoot_type || "-"}</td>
                 <td>
                   <span className={`status ${item.status.toLowerCase()}`}>
                     {item.status}
@@ -44,8 +51,17 @@ const BookingsTable = ({ data }) => {
                 </td>
                 <td>{item.notes || "-"}</td>
                 <td>
-                  <span className="chat-icon">💬</span>
+                  <span
+                    className="chat-btn"
+                    onClick={() => handleChatClick(item.shoot_id)}
+                  >
+                    💬
+                  </span>
                 </td>
+
+                {/* <td>
+                  <span className="chat-btn" onClick={handleChatClick}>💬</span>
+                </td> */}
               </tr>
             ))
           )}

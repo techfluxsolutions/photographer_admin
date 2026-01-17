@@ -22,18 +22,36 @@ const withAuthorization = async (apiFunction, ...args) => {
 // /api/admins/bookings/upcoming?fromDate=2026-01-15&toDate=2026-12-31
 
 
-
-export const getUpcomingBookings = (fromDate, toDate) => {
+export const getUpcomingBookings = (fromDate, toDate, page, limit) => {
   return withAuthorization(async () => {
-    return axiosInstance.get(`/api/admins/bookings/upcoming?fromDate=${fromDate}&toDate=${toDate}`);
+    return axiosInstance.get(
+      `/api/admins/bookings/upcoming?fromDate=${fromDate}&toDate=${toDate}&page=${page}&limit=${limit}`
+    );
   });
-}
+};
+
+
+
 // PREVIOUS
 // {{local}}/api/admins/bookings/previous?fromDate=2025-01-01&toDate=2026-01-14
 
-
-export const getPreviousBookings = (fromDate, toDate) => {
+export const getPreviousBookingsAPI = (
+  fromDate,
+  toDate,
+  page = 1,
+  limit = 5
+) => {
   return withAuthorization(async () => {
-    return axiosInstance.get( `/api/admins/bookings/previous?fromDate=${fromDate}&toDate=${toDate}`);
+    return axiosInstance.get(
+      `/api/admins/bookings/previous`,
+      {
+        params: {
+          fromDate,
+          toDate,
+          page,
+          limit,
+        },
+      }
+    );
   });
-}
+};

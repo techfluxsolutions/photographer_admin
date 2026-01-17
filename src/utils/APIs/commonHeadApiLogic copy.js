@@ -15,7 +15,7 @@ const axiosInstanceNoAuth = axios.create({
   timeout: 30000,
 });
 // 🔥🔥🔥 ADD THIS EXACT LINE
-// axiosInstance.defaults.headers.common["ngrok-skip-browser-warning"] = "true";
+axiosInstance.defaults.headers.common["ngrok-skip-browser-warning"] = "true";
 // Response interceptor (keeps your existing behavior)
 axiosInstance.interceptors.response.use(
   (response) => response,
@@ -38,7 +38,9 @@ axiosInstance.interceptors.response.use(
 export function getAccessToken() {
   const encrypted = sessionStorage.getItem("token");
   if (!encrypted) return null;
-  return decryptData(encrypted); // 🔑 THIS IS THE FIX
+  const decryptToken=decryptData(encrypted)
+  console.log("decryptToken",decryptToken)
+  return decryptToken; // 🔑 THIS IS THE FIX
 }
 // authorizeMe now defensive and returns token or null
 export function authorizeMe() {
@@ -63,7 +65,7 @@ export function authorizeMe() {
     }
 
     if (token) {
-      axiosInstance.defaults.headers.common["Authorization"] =`Bearer ${token}`;
+      axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       return token;
     } else {
       delete axiosInstance.defaults.headers.common["Authorization"];

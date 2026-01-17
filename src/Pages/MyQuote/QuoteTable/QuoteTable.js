@@ -1,7 +1,13 @@
 import React from "react";
 import "./QuoteTable.css";
+import { useNavigate } from "react-router-dom";
 
 const QuoteTable = ({ data }) => {
+  const navigate = useNavigate();
+  const handleChatClick = (quoteId) => {
+  navigate(`/chat/quote/${quoteId}`);
+};
+
   return (
     <div className="quote-table-wrapper">
       <table className="quote-table">
@@ -35,8 +41,14 @@ const QuoteTable = ({ data }) => {
               <td>{item.phone}</td>
               <td className="email">{item.email}</td>
               <td>
-                <button className="chat-btn">💬</button>
+                <button
+                  className="chat-btn"
+                  onClick={() => handleChatClick(item.id)} // use unique quote id
+                >
+                  💬
+                </button>
               </td>
+
             </tr>
           ))}
         </tbody>

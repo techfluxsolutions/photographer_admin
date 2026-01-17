@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { authorizeMe, axiosInstance, axiosInstanceNoAuth } from './commonHeadApiLogic.js';
+import { authorizeMe, axiosInstance } from './commonHeadApiLogic.js';
 
 // Ensure authorization header is set before making authenticated requests
 const withAuthorization = async (apiFunction, ...args) => {

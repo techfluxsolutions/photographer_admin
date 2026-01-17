@@ -19,3 +19,14 @@ export const getPaymentsAPI = (page = 1, limit = 10) => {
     axiosInstance.get(`/api/admins/payments?page=${page}&limit=${limit}`)
   );
 };
+
+
+// /api/admins/invoices/6969d90b4c3993209c584052
+
+export const downloadInvoiceAPI = (invoiceId) => {
+  return withAuthorization(() =>
+    axiosInstance.get(`/api/admins/invoices/${invoiceId}`, {
+      responseType: "blob", // IMPORTANT for file download
+    })
+  );
+};

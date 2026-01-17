@@ -30,10 +30,10 @@ const Customer = () => {
   const mapCustomersResponse = (users = []) =>
     users.map((item) => ({
       id: item._id,
-      name: item.username,
-      email: item.email,
-      mobile: item.mobileNumber,
-      dob: item.dateOfBirth
+      name: item.username || "-",
+      email: item.email || "-",
+      mobile: item.mobileNumber || "-",
+      dob: item.dateOfBirth || "-"
         ? new Date(item.dateOfBirth).toLocaleDateString("en-IN")
         : "-",
       state: item.state || "-",

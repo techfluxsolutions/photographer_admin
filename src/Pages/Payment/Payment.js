@@ -36,6 +36,7 @@ const Payment = () => {
         id: item._id,
         bookingId: item.job_id || "-",
         invoiceId: item.invoice_number,
+        invoiceDbId: item._id, // 👈 use correct backend id
         totalAmount: `₹${total.toLocaleString("en-IN")}`,
         paidAmount: `₹${item.upfront_amount.toLocaleString("en-IN")}`,
         pendingAmount: `₹${item.outstanding_amount.toLocaleString("en-IN")}`,
