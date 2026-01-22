@@ -263,6 +263,7 @@ const handleQuoteSend = async (payload) => {
                   key={msg._id || Math.random()}
                   className={`message-row ${isMe ? "right" : "left"}`}
                 >
+                  {/* isme */}
                   {!isMe && (
                     <img
                       src={sender?.avatar || "https://i.pravatar.cc/40?img=12"}
