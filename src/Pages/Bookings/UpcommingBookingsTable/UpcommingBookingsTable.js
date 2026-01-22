@@ -2,39 +2,46 @@ import React, { useEffect, useState } from "react";
 import { getUpcomingBookings } from "../../../utils/APIs/bookingsApis";
 import BookingsTable from "../BookingsTable/BookingsTable";
 import "./UpcommingBookingsTable.css"
+import Loader from "../../../Loader/Loader";
 const LIMIT = 10;
 
 const UpcommingBookingsTable = () => {
   const [data, setData] = useState([]);
   const [fromDate, setFromDate] = useState("2026-01-15");
   const [toDate, setToDate] = useState("2026-12-31");
-
+  const [loading,setLoading]=useState(false)
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
 
   // 🔹 USING YOUR fetchData (FIXED ONLY)
-  const fetchData = async () => {
-    const response = await getUpcomingBookings(
-      fromDate,
-      toDate,
-      page,
-      LIMIT
-    );
+const fetchData = async (pageNumber = page) => {
+  setLoading(true);
 
-    setData(response?.data?.data || []);
-    setTotal(response?.data?.meta?.total || 0);
-    setPage(response?.data?.meta?.page || page);
-  };
+  const response = await getUpcomingBookings(
+    fromDate,
+    toDate,
+    pageNumber,
+    LIMIT
+  );
 
-  useEffect(() => {
-    fetchData();
-  }, [page]);
+  setData(response?.data?.data || []);
+  setTotal(response?.data?.meta?.total || 0);
+  setPage(response?.data?.meta?.page || pageNumber);
 
-  const applyFilters = () => {
-    setPage(1);
-  };
+  setLoading(false);
+};
+
+
+ useEffect(() => {
+  fetchData(page);
+}, [page, fromDate, toDate]);
+
 
   const totalPages = Math.ceil(total / LIMIT);
+
+  if(loading){
+    return <Loader/>
+  }
 
   return (
     <>
@@ -58,7 +65,14 @@ const UpcommingBookingsTable = () => {
           />
         </div>
 
-        <button onClick={applyFilters} className="filter-btn">
+        {/* <button onClick={applyFilters} className="filter-btn">
+          Apply
+        </button> */}
+         <button
+          onClick={() => fetchData(1)}
+          className="filter-btn"
+          disabled={loading}
+        >
           Apply
         </button>
       </div>

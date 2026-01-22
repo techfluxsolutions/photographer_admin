@@ -34,3 +34,15 @@
   color: green;
   font-size: 12px;
 }
+
+
+.dashboard-title{
+  color: var(--color-primary);
+}
+.dashboard-subtitle{
+  color: var(--color-primary);
+  opacity: 50%;
+}
+.dashboard-text-color{
+  color: var(--color-primary);
+}

@@ -72,6 +72,7 @@
 
 // export default UpcomingBookings;
 
+import "./UpcomingBookings.css";
 
 const UpcomingBookings = () => {
   const bookings = [
@@ -102,9 +103,9 @@ const UpcomingBookings = () => {
   ];
 
   return (
-    <div className="card shadow-sm">
+    <div className="card shadow-sm ">
       <div className="card-body">
-        <h5 className="card-title mb-3">Upcoming Booking</h5>
+        <h5 className="dashboard-text-color upcoming-booking-text">Upcoming Booking</h5>
 
         {bookings.map((item, index) => (
           <div
@@ -113,16 +114,16 @@ const UpcomingBookings = () => {
           >
             {/* Left */}
             <div>
-              <div className="fw-semibold mb-1">
+              <div className="fw-semibold dashboard-text-color mb-1">
                 🎂 {item.title}
               </div>
 
-              <div className="text-muted small mb-2">
+              <div className="dashboard-text-color small mb-2">
                 {item.date} · {item.day}
               </div>
 
               <div className="d-flex align-items-center gap-2 mb-3">
-                <span className="small text-muted">Ratings</span>
+                <span className="small dashboard-text-color">Ratings</span>
                 <span className="text-warning">
                   {"★".repeat(item.rating)}
                 </span>
@@ -139,11 +140,16 @@ const UpcomingBookings = () => {
             </div>
 
             {/* Right */}
-            <div className="text-md-end">
-              <span className="badge bg-success mb-2">
+            <div className="text-md-start">
+              {/* <span className="badge bg-success mb-2">
                 {item.status}
-              </span>
-              <div className="fw-bold mt-2">{item.price}</div>
+              </span> */}
+              {/* <div className="fw-semibold">{item.name}</div> */}
+                <small 
+                style={{ color: "#28AF38" }}
+                >{item.status}</small>
+              {/* </div> */}
+              <div className="fw-bold dashboard-text-color mt-2">{item.price}</div>
             </div>
           </div>
         ))}

@@ -74,8 +74,8 @@ const Dashboard = () => {
       <div className="container-fluid px-3 px-md-4">
         {/* Header */}
         <div className="mb-4">
-          <h2 className="fw-bold mb-1">Welcome Back,</h2>
-          <p className="text-muted">
+          <h2 className="fw-bold mb-1 dashboard-title">Welcome Back,</h2>
+          <p className="dashboard-subtitle">
             Here’s what’s happening with your shoots
           </p>
         </div>

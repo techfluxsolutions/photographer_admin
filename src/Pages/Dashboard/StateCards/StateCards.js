@@ -1,4 +1,4 @@
-// import "./StateCards.css"
+
 
 // const StatsCards = () => {
 //   const stats = [
@@ -23,7 +23,7 @@
 
 // export default StatsCards;
 
-
+import "./StateCards.css"
 const StatsCards = () => {
   const stats = [
     { label: "Total Visitors", value: 15 },
@@ -39,8 +39,8 @@ const StatsCards = () => {
           <div key={index} className="col-12 col-sm-6 col-lg-3">
             <div className="card text-center shadow-sm h-100">
               <div className="card-body">
-                <p className="text-muted mb-1">{item.label}</p>
-                <h3 className="fw-bold">{item.value}</h3>
+                <p className="dashboard-text-color mb-1">{item.label}</p>
+                <p className="fw-bold dashboard-text-color static-state">{item.value}</p>
               </div>
             </div>
           </div>

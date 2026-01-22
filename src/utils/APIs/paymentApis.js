@@ -14,9 +14,15 @@ const withAuthorization = async (apiFunction, ...args) => {
 };
 
 
+// export const getPaymentsAPI = (page = 1, limit = 10) => {
+//   return withAuthorization(() =>
+//     axiosInstance.get(`/api/admins/payments?page=${page}&limit=${limit}`)
+//   );
+// };
+
 export const getPaymentsAPI = (page = 1, limit = 10) => {
   return withAuthorization(() =>
-    axiosInstance.get(`/api/admins/payments?page=${page}&limit=${limit}`)
+    axiosInstance.get(`/api/admins/completelyPaidBookings?page=${page}&limit=${limit}`)
   );
 };
 

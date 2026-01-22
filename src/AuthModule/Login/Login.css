@@ -34,7 +34,7 @@
     font-weight: 500;
     display: block;
     margin-bottom: 0.5rem;
-    color: #5E5E5E;
+     color: var(--color-primary);
 }
 
 .login-input {
@@ -43,7 +43,7 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 16px;
-     color: #667085 !important;
+     /* color: #667085 !important; */
     box-sizing: border-box;
     background:var(--color-bg-main) !important;
 }
@@ -54,10 +54,13 @@ input.login-input:-webkit-autofill,
 input.login-input:-webkit-autofill:hover,
 input.login-input:-webkit-autofill:focus {
   /* -webkit-box-shadow: 0 0 0 1000px var(--color-bg-secondary) inset; */
-  -webkit-text-fill-color: #667085; /* 👈 visible text */
+  -webkit-text-fill-color: var(--color-primary); /* 👈 visible text */
   transition: background-color 5000s ease-in-out 0s;
 }
 
+.login-text{
+    color: var(--color-primary);
+}
 
 .login-input:focus {
     outline: none;

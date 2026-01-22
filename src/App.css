@@ -27,6 +27,7 @@ html, body, * {
 
   /* RGB for opacity usage */
   --primary-color-rgb: 74, 51, 38;
+ --bs-secondary-color: rgba(var(--primary-color-rgb), 0.75);
 }
 html, body, * {
   font-family: var(--font-primary) !important;

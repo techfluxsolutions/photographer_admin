@@ -112,6 +112,10 @@
   margin-bottom: 10px;
 }
 
+.arrow-icon-quote{
+      position: relative;
+    bottom: 12px;
+}
 /* Responsive */
 @media (max-width: 768px) {
   .quote-row {

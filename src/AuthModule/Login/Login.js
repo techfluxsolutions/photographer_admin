@@ -49,7 +49,7 @@ const Login = () => {
   // };
 
 
-  const DEV_BYPASS = true; // 🔴 turn OFF in production
+  const DEV_BYPASS = false; // 🔴 turn OFF in production
 
 const handleLoginClick = async (e) => {
   e.preventDefault();
@@ -102,9 +102,11 @@ const handleLoginClick = async (e) => {
     <div className="main-container">
       <div className="container login-container">
         <form className="login-form" onSubmit={handleLoginClick}>
-          <h2 className="text-center mb-4">Admin Login</h2>
+          <h2 className="text-center mb-4 login-text"
+          style={{fontWeight:"600"}}
+          >Admin - Login</h2>
 
-          <label className="login-label">Email *</label>
+          <label className="login-label">Email </label>
           <input
             type="email"
             className="login-input login-input-manual"
@@ -113,7 +115,7 @@ const handleLoginClick = async (e) => {
             required
           />
 
-          <label className="login-label mt-3">Password *</label>
+          <label className="login-label mt-3">Password</label>
 
           <div className="password-wrapper">
             <input

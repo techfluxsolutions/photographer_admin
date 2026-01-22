@@ -29,17 +29,17 @@ const MyQuote = () => {
 
   const mapQuotesResponse = (quotes = []) =>
   quotes.map((item) => ({
-    id: item._id,
-    eventType: item.eventType,
-    eventDate: new Date(item.eventDate).toLocaleDateString("en-IN"),
-    location: item.location,
-    duration: `${item.eventDuration} hrs`,
-    photography: item.photographyRequirements,
-    budget: `₹${Number(item.budget).toLocaleString("en-IN")}`,
+    id: item._id || "-",
+    eventType: item.eventType || "-",
+    eventDate: new Date(item.eventDate).toLocaleDateString("en-IN") || "-",
+    location: item.location || "-",
+    duration: `${item.eventDuration} hrs` || "-",
+    photography: item.photographyRequirements || "-",
+    budget: `₹${Number(item.budget).toLocaleString("en-IN")}` || "-",
     name: item.clientId?.username || item.clientName || "-",
-    phone: item.phoneNumber,
-    email: item.email,
-    status: item.quoteStatus,
+    phone: item.phoneNumber || "-",
+    email: item.email || "-",
+    status: item.quoteStatus || "-",
   }));
 
 

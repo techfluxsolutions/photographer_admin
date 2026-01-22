@@ -40,6 +40,9 @@
   color: #3d2b1f; /* soft brown like image */
   margin: 0;
 }
+.static-state{
+  font-size: 3.75rem;
+}
 
 /* ---------- Responsive ---------- */
 

@@ -106,6 +106,13 @@
   color: #4b2e1e;
 }
 
+.upcoming-booking-text {
+      font-size: 22px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .booking-box {
