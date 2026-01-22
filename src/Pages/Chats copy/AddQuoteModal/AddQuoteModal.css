@@ -1,0 +1,150 @@
+.aqm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.aqm-modal {
+  width: 600px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px;
+}
+
+.aqm-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.aqm-row.full {
+  grid-template-columns: 1fr;
+}
+
+.aqm-row label {
+  font-size: 15px;
+  color: #9b8f86;
+}
+
+.aqm-row input,
+.aqm-row select,
+.aqm-row textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2ddd8;
+  font-size: 14px;
+  width: 100%;
+}
+
+.aqm-dates {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aqm-dates span {
+  font-size: 13px;
+  color: #9b8f86;
+}
+
+textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.aqm-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.aqm-actions .send {
+  background: #4b2e1f;
+  color: #fff;
+  border: none;
+  padding: 14px 48px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.aqm-actions .cancel {
+  background: transparent;
+  border: 1px solid #c8bdb6;
+  padding: 14px 48px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* ---------- Responsive Modal ---------- */
+
+@media (max-width: 1024px) {
+  .aqm-modal {
+    width: 90%;
+    padding: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aqm-modal {
+    width: 94%;
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .aqm-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .aqm-dates {
+    flex-wrap: wrap;
+  }
+
+  .aqm-dates span {
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .aqm-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .aqm-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .aqm-modal {
+    width: 96%;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .aqm-row label {
+    font-size: 14px;
+  }
+
+  .aqm-actions .send,
+  .aqm-actions .cancel {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* ---------- Height Safety ---------- */
+@media (max-height: 700px) {
+  .aqm-modal {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
